@@ -33,4 +33,17 @@ public class CarFliterExampleTest {
         assertEquals(1,CarFliterExample.filterCarsByColor(carList,CarFliterExample::filterRedColor).size());
         assertEquals("Red",CarFliterExample.filterCarsByColor(carList,CarFliterExample::filterRedColor).get(0).getColor());
     }
+
+    @Test
+    public void testBlackWithLambda() throws Exception {
+        assertEquals(1,CarFliterExample.filterCarsByColor(carList,(CarVO c) -> c.getColor().equals("Black")).size());
+        assertEquals("Black",CarFliterExample.filterCarsByColor(carList,(CarVO c) -> c.getColor().equals("Black")).get(0).getColor());
+    }
+
+    @Test
+    public void testRedWithLambda() throws Exception {
+        assertEquals(1,CarFliterExample.filterCarsByColor(carList,(CarVO c) -> c.getColor().equals("Red")).size());
+        assertEquals("Red",CarFliterExample.filterCarsByColor(carList,(CarVO c) -> c.getColor().equals("Red")).get(0).getColor());
+    }
+
 }

@@ -19,9 +19,9 @@ public class CarFliterExample {
         return carVO.getColor().equals("Red");
     }
 
-    public static List<CarVO> filterCarsByColor(List<CarVO> cars, Predicate<CarVO> predicate){
-        List<CarVO> result = new ArrayList<>();
-        for (CarVO c:cars) {
+    public static <T> List<T> filterCarsByColor(List<T> cars, Predicate<T> predicate){
+        List<T> result = new ArrayList<>();
+        for (T c:cars) {
             if(predicate.test(c)){
                 result.add(c);
             }
