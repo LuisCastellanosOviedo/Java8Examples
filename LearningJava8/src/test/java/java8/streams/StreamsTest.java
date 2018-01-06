@@ -51,5 +51,13 @@ public class StreamsTest {
     @Test
     public void skipVegetarianDishes() throws Exception {
         assertEquals(2,StreamsUtil.skipVegetariasDishes(menu).stream().count());
+        assertEquals("season fruit",StreamsUtil.skipVegetariasDishes(menu).get(0));
+        assertEquals("pizza",StreamsUtil.skipVegetariasDishes(menu).get(1));
+    }
+
+    @Test
+    public void testDoubleMap() throws Exception {
+        assertEquals(menu.size(),StreamsUtil.doubleMapExample(menu).stream().count());
+        assertEquals(new Integer(4),StreamsUtil.doubleMapExample(menu).get(0));
     }
 }

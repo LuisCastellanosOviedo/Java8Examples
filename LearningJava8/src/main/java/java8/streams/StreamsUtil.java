@@ -26,4 +26,8 @@ public class StreamsUtil {
     public static List<String> skipVegetariasDishes(List<Dish> menu){
         return menu.stream().filter(v -> v.isVegetarian()).skip(2).map(Dish::getName).collect(toList());
     }
+
+    public static List<Integer> doubleMapExample(List<Dish> menu){
+        return menu.stream().map(Dish::getName).map(String::length).collect(toList());
+    }
 }
