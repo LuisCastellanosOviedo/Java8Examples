@@ -1,6 +1,8 @@
 package java8.streams;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static java.util.stream.Collectors.toList;
 
@@ -30,4 +32,32 @@ public class StreamsUtil {
     public static List<Integer> doubleMapExample(List<Dish> menu){
         return menu.stream().map(Dish::getName).map(String::length).collect(toList());
     }
+
+    public static List<String> flatMapWithDistinct(String[] words){
+        return Arrays.stream(words).map(w -> w.split("")).flatMap(Arrays::stream).distinct().collect(toList());
+    }
+
+
+    public static Boolean testAnyMatch(List<Dish> dishes){
+        return dishes.stream().anyMatch(Dish::isVegetarian);
+    }
+
+    public static Boolean testAllMatch(List<Dish> menu){
+        return menu.stream().allMatch(d -> d.getCalories()<10000);
+    }
+
+    public static Boolean testNoneMatch(List<Dish> menu){
+        return menu.stream().noneMatch(d -> d.getCalories()>100000);
+    }
+
+    public static Optional<Dish> testFindAny(List<Dish> menu){
+        return menu.stream().filter(Dish::isVegetarian).findAny();
+    }
+
+
+    public static Boolean testIsPresent(List<Dish> menu){
+        return testFindAny(menu).isPresent();
+    }
+
+
 }
