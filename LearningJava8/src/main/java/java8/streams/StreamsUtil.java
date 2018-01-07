@@ -13,7 +13,7 @@ public class StreamsUtil {
 
 
     public static List<String> threeDishesHighCalories(List<Dish> menu) {
-       return menu.stream().filter(d -> d.getCalories()>300).map(Dish::getName).limit(3).collect(toList());
+        return menu.stream().filter(d -> d.getCalories()>300).map(Dish::getName).limit(3).collect(toList());
     }
 
     public static List<String> vegetarianDishes(List<Dish> menu){
@@ -59,5 +59,12 @@ public class StreamsUtil {
         return testFindAny(menu).isPresent();
     }
 
+    public static int testReduceDum(List<Integer> numbers){
+        return numbers.stream().reduce(0,(a,b)-> a+b);
+    }
 
+
+    public static Optional<Integer> testMax(List<Integer> numbers){
+        return numbers.stream().reduce(Integer::max);
+    }
 }

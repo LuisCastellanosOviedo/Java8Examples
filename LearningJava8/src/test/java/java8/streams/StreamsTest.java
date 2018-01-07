@@ -96,4 +96,14 @@ public class StreamsTest {
     public void testisPresent() throws Exception {
         assertEquals(true,StreamsUtil.testIsPresent(menu));
     }
+
+    @Test
+    public void testReduceSum() throws Exception {
+        assertEquals(16,StreamsUtil.testReduceDum(numbers));
+    }
+
+    @Test
+    public void testMaxReduce() throws Exception {
+        assertEquals(new Integer(4),StreamsUtil.testMax(numbers).get());
+    }
 }
